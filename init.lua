@@ -91,7 +91,7 @@ vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 
 -- Set to true if you have a Nerd Font installed and selected in the terminal
-vim.g.have_nerd_font = false
+vim.g.have_nerd_font = true
 
 -- [[ Setting options ]]
 -- See `:help vim.o`
@@ -102,7 +102,7 @@ vim.g.have_nerd_font = false
 vim.o.number = true
 -- You can also add relative line numbers, to help with jumping.
 --  Experiment for yourself to see if you like it!
--- vim.o.relativenumber = true
+vim.o.relativenumber = true
 
 -- Enable mouse mode, can be useful for resizing splits for example!
 vim.o.mouse = 'a'
@@ -185,10 +185,10 @@ vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagn
 vim.keymap.set('t', '<Esc><Esc>', '<C-\\><C-n>', { desc = 'Exit terminal mode' })
 
 -- TIP: Disable arrow keys in normal mode
--- vim.keymap.set('n', '<left>', '<cmd>echo "Use h to move!!"<CR>')
--- vim.keymap.set('n', '<right>', '<cmd>echo "Use l to move!!"<CR>')
--- vim.keymap.set('n', '<up>', '<cmd>echo "Use k to move!!"<CR>')
--- vim.keymap.set('n', '<down>', '<cmd>echo "Use j to move!!"<CR>')
+vim.keymap.set('n', '<left>', '<cmd>echo "Use h to move!!"<CR>')
+vim.keymap.set('n', '<right>', '<cmd>echo "Use l to move!!"<CR>')
+vim.keymap.set('n', '<up>', '<cmd>echo "Use k to move!!"<CR>')
+vim.keymap.set('n', '<down>', '<cmd>echo "Use j to move!!"<CR>')
 
 -- Keybinds to make split navigation easier.
 --  Use CTRL+<hjkl> to switch between windows
@@ -1011,6 +1011,28 @@ require('lazy').setup({
     },
   },
 })
+
+-- MY CUSTOM CONFIG
+
+-- Remove background to see the terminal background instead
+vim.cmd [[
+  hi Normal guibg=NONE ctermbg=NONE
+  hi NormalNC guibg=NONE ctermbg=NONE
+  hi EndOfBuffer guibg=NONE ctermbg=NONE
+]]
+
+-- Makes line numbers more visible
+
+-- Normal line numbers (all lines)
+vim.cmd 'hi LineNr guifg=#7aa2f7 gui=bold'
+
+-- Current line number (where cursor is) not sire this one is useful.
+-- I'll comment it for now and delete after some time if I see no difference.
+-- vim.cmd("hi CursorLineNr guifg=#ff9e64 gui=bold")
+
+-- Relative numbers above and below
+vim.cmd 'hi LineNrAbove guifg=#9ece6a'
+vim.cmd 'hi LineNrBelow guifg=#9ece6a'
 
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et
