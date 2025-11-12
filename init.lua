@@ -1036,3 +1036,11 @@ vim.cmd 'hi LineNrBelow guifg=#9ece6a'
 
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et
+vim.cmd 'set expandtab'
+vim.cmd 'set tabstop=2'
+vim.cmd 'set softtabstop=2'
+vim.cmd 'set shiftwidth=2'
+vim.cmd 'set number'
+vim.cmd 'set completeopt=menu,menuone,noselect,noinsert'
+vim.opt.winborder = 'rounded'
+vim.opt.signcolumn = 'yes'
